@@ -22,7 +22,7 @@ class Transfer
     result = nil
     
     if all_validation_passes(sender = self.sender)
-      .balance -= @amount
+      sender.balance -= @amount
       @receiver.balance += @amount
       @status = "complete"
     elsif !accounts_not_closed || insufficent_funds
