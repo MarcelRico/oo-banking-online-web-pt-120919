@@ -21,9 +21,9 @@ class Transfer
     all_validation_passes = status_is_pending && !insufficent_funds && accounts_not_closed && self.valid?
     result = nil
     
-    if all_validation_passes(sender = @sender,receiver = @receiver)
-      sender.balance -= @amount
-      receiver.balance += @amount
+    if all_validation_passes(sender = self.sender)
+      .balance -= @amount
+      @receiver.balance += @amount
       @status = "complete"
     elsif !accounts_not_closed || insufficent_funds
       @status = "rejected"
