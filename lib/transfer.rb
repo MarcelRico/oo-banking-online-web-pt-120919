@@ -19,20 +19,20 @@ class Transfer
     insufficent_funds = (@sender.balance - @amount <= 0)
     accounts_not_closed = (@sender.status == "open") && (@receiver.status == "open")
     all_validation_passes = status_is_pending && !insufficent_funds && accounts_not_closed && self.valid?
-    
+    result = nil
     
     if all_validation_passes
       @sender.balance -= @amount
       @receiver.balance += @amount
       @status = "complete"
     elsif insufficent_funds
-      return "Hello World!"
+      result = "Hello World!"
     end
     
     puts "sender balance: #{@sender.balance}"
     puts "receiver balance: #{@receiver.balance}"
     
     
-    
+    result
   end
 end
