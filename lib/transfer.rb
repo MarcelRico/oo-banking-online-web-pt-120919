@@ -33,7 +33,7 @@ class Transfer
   
   def reverse_transfer
     @status = pending
-    self.execute_transaction(@receiver,@sender)
+    self.execute_transaction(@receiver, @sender)
   end
   
 end
