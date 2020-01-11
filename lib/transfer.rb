@@ -27,6 +27,7 @@ class Transfer
       @status = "complete"
     elsif !accounts_not_closed || insufficent_funds
       return "Transaction rejected. Please check your account balance."
+      @status.rejected
     end
     
     puts "sender balance: #{@sender.balance}"
