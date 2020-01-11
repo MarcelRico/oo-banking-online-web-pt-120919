@@ -25,7 +25,7 @@ class Transfer
       @sender.balance -= @amount
       @receiver.balance += @amount
       @status = "complete"
-    elsif !accounts_not_closed
+    elsif !accounts_not_closed || insufficent_funds
       return "Transaction rejected. Please check your account balance."
     end
     
