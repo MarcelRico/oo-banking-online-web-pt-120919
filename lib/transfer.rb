@@ -33,6 +33,7 @@ class Transfer
   end
   
   def reverse_transfer
+    puts @sender
     self.execute_transaction(@receiver,@sender)
   end
   
