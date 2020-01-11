@@ -26,7 +26,7 @@ class Transfer
       @receiver.balance += @amount
       @status = "complete"
     elsif insufficent_funds
-      puts "Hello World!"
+      return "Hello World!"
     end
     
     
