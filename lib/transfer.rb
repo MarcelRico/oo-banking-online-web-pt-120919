@@ -13,16 +13,14 @@ class Transfer
     (@amount > 0) && (@sender.valid?) && (@receiver.valid?)
   end
   
-  def all_validation_passes?
+  def execute_transaction(sender = @sender, receiver = @receiver)
+    
     status_is_pending = (@status == "pending")
     insufficent_funds = (sender.balance - @amount <= 0)
     accounts_not_closed = (sender.status == "open") && (receiver.status == "open")
-    status_is_pending && !insufficent_funds && accounts_not_closed && self.valid?
-  end
-  
-  def execute_transaction(sender = @sender, receiver = @receiver)
+    all_validation_passes = status_is_pending && !insufficent_funds && accounts_not_closed && self.valid?
     
-    if self.all_validation_passes?
+    if all_validation_passes?
       sender.balance -= @amount
       receiver.balance += @amount
       @status = "complete"
