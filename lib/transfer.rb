@@ -25,7 +25,7 @@ class Transfer
       @sender.balance -= @amount
       @receiver.balance += @amount
       @status = "complete"
-    elsif insufficent_funds
+    elsif !accounts_not_closed
       result = "Hello World!"
     end
     
