@@ -33,6 +33,7 @@ class Transfer
   end
   
   def reverse_transfer(sender = @receiver, receiver = @sender)
+    @status = "pending"
     status_is_pending = (@status == "pending")
     insufficent_funds = (sender.balance - @amount <= 0)
     accounts_not_closed = (sender.status == "open") && (receiver.status == "open")
