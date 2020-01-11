@@ -26,7 +26,7 @@ class Transfer
       @receiver.balance += @amount
       @status = "complete"
     elsif !accounts_not_closed
-      return "Transaction rejected. Please check your account balance."
+      puts "Transaction rejected. Please check your account balance."
     end
     
     puts "sender balance: #{@sender.balance}"
