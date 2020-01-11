@@ -31,6 +31,7 @@ class Transfer
     
     puts "sender balance: #{@sender.balance}"
     puts "receiver balance: #{@receiver.balance}"
+    puts "sender - amount: #{@sender.balance - @amount}"
     
     
     result
