@@ -13,7 +13,7 @@ class Transfer
     (@amount > 0) && (@sender.valid?) && (@receiver.valid?)
   end
   
-  def execute_transaction(sender = @sender, receiver = @receiver)
+  def execute_transaction(sender = @sender, receiver = @receiver, completion_status = "complete")
     
     status_is_pending = (@status == "pending")
     insufficent_funds = (sender.balance - @amount <= 0)
@@ -23,7 +23,7 @@ class Transfer
     if all_validation_passes
       sender.balance -= @amount
       receiver.balance += @amount
-      @status = "complete"
+      @status = completion_status
     elsif !accounts_not_closed || insufficent_funds
       @status = "rejected"
       return "Transaction rejected. Please check your account balance."
@@ -33,7 +33,7 @@ class Transfer
   
   def reverse_transfer
     @status = "pending"
-    self.execute_transaction(@receiver, @sender)
+    self.execute_transaction(@receiver, @sender, "reversed")
   end
   
 end
