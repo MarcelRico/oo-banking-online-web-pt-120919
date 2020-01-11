@@ -33,8 +33,8 @@ class Transfer
   end
   
   def reverse_transfer
-    puts @sender.name
-    puts @sender.balance
+    puts @receiver.name
+    puts @receiver.balance
     self.execute_transaction(@receiver,@sender)
   end
   
