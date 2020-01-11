@@ -29,6 +29,9 @@ class Transfer
       return "Hello World!"
     end
     
+    puts "sender balance: #{@sender.balance}"
+    puts "receiver balance: #{@receiver.balance}"
+    
     
     
   end
