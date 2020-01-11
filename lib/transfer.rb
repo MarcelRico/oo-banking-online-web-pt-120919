@@ -34,6 +34,7 @@ class Transfer
   
   def reverse_transfer
     self.execute_transaction(@receiver,@sender)
+    @receiver.balance
   end
   
 end
