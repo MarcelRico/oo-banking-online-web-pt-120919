@@ -26,7 +26,7 @@ class Transfer
       @receiver.balance += @amount
       @status = "complete"
     elsif !accounts_not_closed
-      result = "Hello World!"
+      result = ""
     end
     
     puts "sender balance: #{@sender.balance}"
