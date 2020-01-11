@@ -30,12 +30,5 @@ class Transfer
       return "Transaction rejected. Please check your account balance."
     end
     
-    puts "sender balance: #{@sender.balance}"
-    puts ""
-    puts "receiver balance: #{@receiver.balance}"
-    puts "sender - amount: #{@sender.balance - @amount}"
-    
-    
-    nil
   end
 end
