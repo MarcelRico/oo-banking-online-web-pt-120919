@@ -22,7 +22,7 @@ class Transfer
   
   def execute_transaction(sender = @sender, receiver = @receiver)
     
-    if all_validation_passes?
+    if self.all_validation_passes?
       sender.balance -= @amount
       receiver.balance += @amount
       @status = "complete"
