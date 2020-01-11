@@ -13,7 +13,7 @@ class Transfer
     (@amount > 0) && (@sender.valid?) && (@receiver.valid?)
   end
   
-  def execute_transaction(sender = @sender, receiver = @receiver, completion_status = "complete")
+  def execute_transaction(sender = @sender, receiver = @receiver, completion_status = "completed")
     
     status_is_pending = (@status == "pending")
     insufficent_funds = (sender.balance - @amount <= 0)
