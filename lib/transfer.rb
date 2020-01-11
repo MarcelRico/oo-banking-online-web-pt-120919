@@ -18,7 +18,7 @@ class Transfer
     status_is_pending = (@status == "pending")
     insufficent_funds = (@sender.balance <= @amount)
     accounts_not_closed = (@sender.status == "open") && (@receiver.status == "open")
-    all_validation_passes = status_is_pending && !insufficent_funds && accounts_not_closed
+    all_validation_passes = status_is_pending && !insufficent_funds && accounts_not_closed && self.valid?
     
     
     if all_validation_passes
